@@ -26,6 +26,7 @@
     
     <!-- JavaScript -->
     <script src="assets/script.js" defer></script>
+    <script src="assets/auto-posts.js" defer></script>
     
     <!-- Schema Markup -->
     <script type="application/ld+json">
@@ -35,9 +36,21 @@
         "name": "বাংলা গাইড নিউজ",
         "url": "https://banglaguidenews.com",
         "logo": "assets/logo.png",
-        "description": "বাংলা গাইড নিউজ - আপনার বিশ্বস্ত খবরের উৎস"
+        "description": "বাংলা গাইড নিউজ - আপনার বিশ্বস্ত খবরের উৎস",
+        "sameAs": [
+            "https://banglaguidenews.com/about.html",
+            "https://banglaguidenews.com/contact.html"
+        ],
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://banglaguidenews.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
     }
     </script>
+    
+    <!-- Sitemap Reference -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://banglaguidenews.com/sitemap.xml">
 </head>
 <body>
     <!-- Header Section -->
@@ -81,6 +94,26 @@
     <main class="main-content">
         <div class="container">
             <div class="content-wrapper">
+                <!-- Featured Posts Section -->
+                <section class="featured-posts">
+                    <h2 class="section-title">বৈশিষ্ট্যযুক্ত পোস্ট</h2>
+                    <div class="featured-posts-container">
+                        <!-- Auto-generated featured post will be inserted here -->
+                    </div>
+                    <div class="featured-navigation">
+                        <button class="nav-btn prev-post">←</button>
+                        <button class="nav-btn next-post">→</button>
+                    </div>
+                </section>
+
+                <!-- Latest Posts Section -->
+                <section class="articles-section">
+                    <h2 class="section-title">সর্বশেষ খবর</h2>
+                    <div class="latest-posts">
+                        <!-- Auto-generated latest posts will be inserted here -->
+                    </div>
+                </section>
+
                 <!-- Main Articles Section -->
                 <section class="articles-section">
                     <h2 class="section-title">সর্বশেষ খবর</h2>
@@ -88,8 +121,7 @@
                     <!-- Article 1 -->
                     <article class="article-card">
                         <div class="article-image">
-                        
-
+                            <img src="https://via.placeholder.com/400x250/ff4444/ffffff?text=আধার+কার্ড" alt="আধার কার্ড আপডেট">
                         </div>
                         <div class="article-content">
                             <div class="article-meta">
