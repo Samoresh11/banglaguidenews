@@ -1,53 +1,35 @@
-name: Google Indexing API Submitter
+name: Generate urls.txt
 
 on:
   push:
-    branches:
-      - main  # or your working branch
+    paths:
+      - 'posts/**.html'
+      - '.github/workflows/generate-urls.yml'
+  workflow_dispatch:
 
 jobs:
-  submit-urls:
+  generate-urls:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.11
+      - name: Generate urls.txt from HTML files
+        run: |
+          BASE_URL="https://banglaguidenewsonline.online"
+          find posts -name "*.html" > temp_paths.txt
+          echo "" > urls.txt
+          while read line; do
+            echo "$BASE_URL/$line" >> urls.txt
+          done < temp_paths.txt
+          rm temp_paths.txt
+          echo "Generated URLs:"
+          cat urls.txt
 
-    - name: Install dependencies
-      run: |
-        pip install google-api-python-client google-auth google-auth-httplib2 google-auth-oauthlib
-
-    - name: Submit URLs to Google Indexing API
-      env:
-        GOOGLE_APPLICATION_CREDENTIALS: service-account.json
-      run: |
-        echo "${{ secrets.GOOGLE_SERVICE_JSON }}" > service-account.json
-
-        python <<EOF
-import json
-from google.oauth2 import service_account
-from googleapiclient.discovery import build
-
-SCOPES = ["https://www.googleapis.com/auth/indexing"]
-API_ENDPOINT = "https://indexing.googleapis.com/v3/urlNotifications:publish"
-
-credentials = service_account.Credentials.from_service_account_file(
-    'service-account.json', scopes=SCOPES)
-service = build('indexing', 'v3', credentials=credentials)
-
-with open("urls.txt", "r") as f:
-    urls = [line.strip() for line in f.readlines() if line.strip()]
-
-for url in urls:
-    try:
-        result = service.urlNotifications().publish(
-            body={"url": url, "type": "URL_UPDATED"}).execute()
-        print(f"✅ Indexed: {url}")
-    except Exception as e:
-        print(f"❌ Failed: {url} → {e}")
-EOF
+      - name: Commit and push urls.txt
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add urls.txt
+          git commit -m "Auto-update urls.txt from HTML posts"
+          git push
