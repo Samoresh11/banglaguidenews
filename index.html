@@ -1,27 +1,453 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bangla Guide News - বাংলা গাইড নিউজ</title>
-    <meta name="description" content="বাংলাদেশ ও ভারতের সর্বশেষ সংবাদ - জাতীয়, আন্তর্জাতিক, খেলা, বিনোদন, প্রযুক্তি" />
-    <meta name="author" content="Bangla Guide News" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বাংলা গাইড নিউজ - সর্বশেষ বাংলা সংবাদ</title>
+    <meta name="description" content="বাংলাদেশ ও ভারতের সর্বশেষ সংবাদ, খেলা, বিনোদন, প্রযুক্তি এবং আরও অনেক কিছু">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="breaking-news">
+                        <span class="breaking-text">ব্রেকিং নিউজ</span>
+                        <div class="news-ticker">
+                            <div class="ticker-content">
+                                প্রধানমন্ত্রীর গুরুত্বপূর্ণ ঘোষণা • ক্রিকেট বিশ্বকাপে বাংলাদেশের জয় • নতুন প্রযুক্তি উদ্ভাবন • শিক্ষা ক্ষেত্রে নতুন সংস্কার
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <meta property="og:title" content="Bangla Guide News - বাংলা গাইড নিউজ" />
-    <meta property="og:description" content="বাংলাদেশ ও ভারতের সর্বশেষ সংবাদ - জাতীয়, আন্তর্জাতিক, খেলা, বিনোদন, প্রযুক্তি" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        <!-- Main Header -->
+        <div class="main-header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="#" class="logo">বাংলা গাইড নিউজ</a>
+                    <div class="search-container">
+                        <div class="search-box">
+                            <input type="text" placeholder="সংবাদ খুঁজুন...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                        <button class="theme-toggle" onclick="toggleTheme()">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="container">
+                <div class="nav-container">
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#" class="active">হোম</a></li>
+                        <li><a href="#">জাতীয়</a></li>
+                        <li><a href="#">আন্তর্জাতিক</a></li>
+                        <li><a href="#">খেলা</a></li>
+                        <li><a href="#">বিনোদন</a></li>
+                        <li><a href="#">প্রযুক্তি</a></li>
+                        <li><a href="#">জীবনধারা</a></li>
+                        <li><a href="#">স্বাস্থ্য</a></li>
+                        <li><a href="#">মতামত</a></li>
+                    </ul>
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <!-- Main Content -->
+    <main class="container">
+        <div class="main-content">
+            <div class="content-area">
+                <!-- Featured Article -->
+                <article class="featured-article">
+                    <div class="featured-image">
+                        <span>প্রধান সংবাদের ছবি</span>
+                    </div>
+                    <div class="featured-content">
+                        <span class="category-tag">জাতীয়</span>
+                        <h1 class="featured-title">বাংলাদেশে নতুন উন্নয়ন প্রকল্পের উদ্বোধন: দেশের অর্থনীতিতে নতুন মাত্রা</h1>
+                        <p class="featured-excerpt">
+                            প্রধানমন্ত্রী আজ দেশের সবচেয়ে বড় উন্নয়ন প্রকল্পের উদ্বোধন করেছেন। এই প্রকল্প দেশের অর্থনীতিতে নতুন মাত্রা যোগ করবে এবং হাজার হাজার মানুষের কর্মসংস্থানের সুযোগ সৃষ্টি করবে।
+                        </p>
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <div class="author-avatar">র</div>
+                                <span>রহিম উদ্দিন</span>
+                            </div>
+                            <span><i class="far fa-clock"></i> ২ ঘন্টা আগে</span>
+                            <span><i class="far fa-eye"></i> ১,২৩৪ পাঠক</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Grid -->
+                <section class="news-grid">
+                    <article class="news-card">
+                        <div class="news-image">
+                            <span>খেলার সংবাদ</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="category-tag">খেলা</span>
+                            <h3 class="news-title">বাংলাদেশ ক্রিকেট দলের দুর্দান্ত জয়</h3>
+                            <p class="news-excerpt">আন্তর্জাতিক ক্রিকেটে বাংলাদেশের অসাধারণ পারফরম্যান্স...</p>
+                            <div class="article-meta">
+                                <div class="author-info">
+                                    <div class="author-avatar">ক</div>
+                                    <span>করিম আহমেদ</span>
+                                </div>
+                                <span>৩ ঘন্টা আগে</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-image">
+                            <span>প্রযুক্তি সংবাদ</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="category-tag">প্রযুক্তি</span>
+                            <h3 class="news-title">নতুন স্মার্টফোন প্রযুক্তির আবিষ্কার</h3>
+                            <p class="news-excerpt">বাংলাদেশি গবেষকদের নতুন প্রযুক্তি উদ্ভাবন...</p>
+                            <div class="article-meta">
+                                <div class="author-info">
+                                    <div class="author-avatar">স</div>
+                                    <span>সালমা খাতুন</span>
+                                </div>
+                                <span>৪ ঘন্টা আগে</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-image">
+                            <span>বিনোদন সংবাদ</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="category-tag">বিনোদন</span>
+                            <h3 class="news-title">নতুন বাংলা চলচ্চিত্রের ট্রেইলার মুক্তি</h3>
+                            <p class="news-excerpt">প্রত্যাশিত বাংলা সিনেমার ট্রেইলার প্রকাশ...</p>
+                            <div class="article-meta">
+                                <div class="author-info">
+                                    <div class="author-avatar">ন</div>
+                                    <span>নাসির হোসেন</span>
+                                </div>
+                                <span>৫ ঘন্টা আগে</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-image">
+                            <span>স্বাস্থ্য সংবাদ</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="category-tag">স্বাস্থ্য</span>
+                            <h3 class="news-title">নতুন স্বাস্থ্য সেবা কর্মসূচি চালু</h3>
+                            <p class="news-excerpt">সরকারের নতুন স্বাস্থ্য সেবা উদ্যোগ...</p>
+                            <div class="article-meta">
+                                <div class="author-info">
+                                    <div class="author-avatar">ফ</div>
+                                    <span>ফাতেমা বেগম</span>
+                                </div>
+                                <span>৬ ঘন্টা আগে</span>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Popular Posts -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">জনপ্রিয় সংবাদ</h3>
+                    <div class="popular-post">
+                        <div class="popular-image"></div>
+                        <div class="popular-content">
+                            <h4>শিক্ষা ক্ষেত্রে নতুন সংস্কার ঘোষণা</h4>
+                            <div class="popular-date">১ দিন আগে</div>
+                        </div>
+                    </div>
+                    <div class="popular-post">
+                        <div class="popular-image"></div>
+                        <div class="popular-content">
+                            <h4>আন্তর্জাতিক বাজারে তেলের দাম বৃদ্ধি</h4>
+                            <div class="popular-date">২ দিন আগে</div>
+                        </div>
+                    </div>
+                    <div class="popular-post">
+                        <div class="popular-image"></div>
+                        <div class="popular-content">
+                            <h4>নতুন রেল লাইন উদ্বোধনের প্রস্তুতি</h4>
+                            <div class="popular-date">৩ দিন আগে</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">বিভাগসমূহ</h3>
+                    <div class="tags">
+                        <a href="#" class="tag">জাতীয়</a>
+                        <a href="#" class="tag">আন্তর্জাতিক</a>
+                        <a href="#" class="tag">খেলা</a>
+                        <a href="#" class="tag">বিনোদন</a>
+                        <a href="#" class="tag">প্রযুক্তি</a>
+                        <a href="#" class="tag">জীবনধারা</a>
+                        <a href="#" class="tag">স্বাস্থ্য</a>
+                        <a href="#" class="tag">মতামত</a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">নিউজলেটার</h3>
+                    <p style="margin-bottom: 15px; color: #6b7280;">সর্বশেষ সংবাদ পেতে সাবস্ক্রাইব করুন</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" class="newsletter-input" placeholder="আপনার ইমেইল ঠিকানা" required>
+                        <button type="submit" class="newsletter-btn">সাবস্ক্রাইব করুন</button>
+                    </form>
+                </div>
+
+                <!-- Ad Space -->
+                <div class="sidebar-widget" style="text-align: center; background: #f3f4f6; min-height: 250px; display: flex; align-items: center; justify-content: center;">
+                    <div style="color: #6b7280;">
+                        <i class="fas fa-ad" style="font-size: 48px; margin-bottom: 10px;"></i>
+                        <p>বিজ্ঞাপনের স্থান</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>বাংলা গাইড নিউজ</h3>
+                    <p style="color: #d1d5db; line-height: 1.6;">
+                        বাংলাদেশ ও ভারতের সর্বশেষ সংবাদ, বিশ্লেষণ এবং মতামত। 
+                        আমরা সত্য ও নিরপেক্ষ সংবাদ পরিবেশনে প্রতিশ্রুতিবদ্ধ।
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>বিভাগসমূহ</h3>
+                    <ul>
+                        <li><a href="#">জাতীয় সংবাদ</a></li>
+                        <li><a href="#">আন্তর্জাতিক</a></li>
+                        <li><a href="#">খেলাধুলা</a></li>
+                        <li><a href="#">বিনোদন</a></li>
+                        <li><a href="#">প্রযুক্তি</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>গুরুত্বপূর্ণ লিংক</h3>
+                    <ul>
+                        <li><a href="#">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#">যোগাযোগ</a></li>
+                        <li><a href="#">গোপনীয়তা নীতি</a></li>
+                        <li><a href="#">ব্যবহারের শর্তাবলী</a></li>
+                        <li><a href="#">বিজ্ঞাপন</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>যোগাযোগ</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px;">
+                            <i class="fas fa-envelope" style="margin-right: 8px;"></i>
+                            info@banglaguidenews.online
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <i class="fas fa-phone" style="margin-right: 8px;"></i>
+                            +৮৮০ ১৭১২-৩৪৫৬৭৮
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>
+                            ঢাকা, বাংলাদেশ
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; ২০২৪ বাংলা গাইড নিউজ। সকল অধিকার সংরক্ষিত।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle i');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeToggle.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeToggle = document.querySelector('.theme-toggle i');
+            
+            if (savedTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeToggle.className = 'fas fa-sun';
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            const toggleBtn = document.querySelector('.mobile-menu-toggle i');
+            
+            navMenu.classList.toggle('active');
+            
+            if (navMenu.classList.contains('active')) {
+                toggleBtn.className = 'fas fa-times';
+            } else {
+                toggleBtn.className = 'fas fa-bars';
+            }
+        }
+
+        // Search Functionality
+        document.querySelector('.search-box').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = this.querySelector('input').value;
+            if (searchTerm.trim()) {
+                alert('খুঁজছেন: ' + searchTerm);
+                // Here you would implement actual search functionality
+            }
+        });
+
+        // Newsletter Subscription
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input').value;
+            alert('ধন্যবাদ! আপনার ইমেইল ' + email + ' সফলভাবে সাবস্ক্রাইব হয়েছে।');
+            event.target.reset();
+        }
+
+        // Navigation Active State
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Close mobile menu if open
+                const navMenu = document.getElementById('navMenu');
+                const toggleBtn = document.querySelector('.mobile-menu-toggle i');
+                
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    toggleBtn.className = 'fas fa-bars';
+                }
+            });
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation for news cards
+        document.querySelectorAll('.news-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.opacity = '0.7';
+                setTimeout(() => {
+                    this.style.opacity = '1';
+                    alert('সংবাদটি লোড হচ্ছে...');
+                }, 200);
+            });
+        });
+
+        // Social sharing functionality
+        function shareArticle(platform, title, url) {
+            const shareUrls = {
+                facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+                twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
+                whatsapp: `https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`
+            };
+            
+            if (shareUrls[platform]) {
+                window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+            }
+        }
+
+        // Add share buttons to articles (you can call this function)
+        function addShareButtons() {
+            const articles = document.querySelectorAll('.news-card, .featured-article');
+            articles.forEach(article => {
+                const shareDiv = document.createElement('div');
+                shareDiv.className = 'share-buttons';
+                shareDiv.style.cssText = 'margin-top: 15px; display: flex; gap: 10px;';
+                
+                shareDiv.innerHTML = `
+                    <button onclick="shareArticle('facebook', 'সংবাদ শিরোনাম', window.location.href)" 
+                            style="background: #1877f2; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">
+                        <i class="fab fa-facebook-f"></i> শেয়ার
+                    </button>
+                    <button onclick="shareArticle('twitter', 'সংবাদ শিরোনাম', window.location.href)" 
+                            style="background: #1da1f2; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">
+                        <i class="fab fa-twitter"></i> টুইট
+                    </button>
+                    <button onclick="shareArticle('whatsapp', 'সংবাদ শিরোনাম', window.location.href)" 
+                            style="background: #25d366; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">
+                        <i class="fab fa-whatsapp"></i> শেয়ার
+                    </button>
+                `;
+                
+                const content = article.querySelector('.news-content, .featured-content');
+                if (content) {
+                    content.appendChild(shareDiv);
+                }
+            });
+        }
+
+        // Initialize share buttons
+        document.addEventListener('DOMContentLoaded', addShareButtons);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9686de4623cc8fb3',t:'MTc1NDA2NzM4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
